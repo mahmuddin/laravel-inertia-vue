@@ -52,7 +52,9 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return Inertia::render('Edit', [
+            'post' => $post
+        ]);
     }
 
     /**
@@ -60,7 +62,14 @@ class PostController extends Controller
      */
     public function update(UpdatePostRequest $request, Post $post)
     {
-        //
+        $data = $request->validated();
+
+        // $post->update($data); // You also can use this method
+        $post->update([
+            'title' => $data['title'],
+            'author' => $data['author'],
+            'content' => $data['content'],
+        ]);
     }
 
     /**
