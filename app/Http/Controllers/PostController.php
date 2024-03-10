@@ -24,7 +24,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Create');
     }
 
     /**
@@ -32,7 +32,9 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        $post = Post::create($data);
     }
 
     /**

@@ -1,5 +1,8 @@
 <template>
     <div class="container mx-auto pt-5">
+        <nav class="pb-3">
+            <Link :href="`post/create`"><b>Create post</b></Link>
+        </nav>
         <div class="post__block" v-for="post in posts" :key="post.id">
             <h2>{{ post.title }}</h2>
             <p>{{ post.author }}</p>
